@@ -1,0 +1,193 @@
+:root {
+  /* Apple-like Palette */
+  --apple-bg: #F5F5F7;
+  /* Light gray background */
+  --apple-text: #1D1D1F;
+  /* Almost black */
+  --apple-text-light: #86868B;
+  /* Gray text */
+  --apple-blue: #0071E3;
+  /* Apple Blue */
+  --apple-card-bg: rgba(255, 255, 255, 0.8);
+  --apple-glass-border: rgba(255, 255, 255, 0.5);
+
+  /* Dark Mode Overrides handled by media query or attribute usually, 
+     but MkDocs Material handles switching via data-md-color-scheme */
+}
+
+[data-md-color-scheme="slate"] {
+  --apple-bg: #000000;
+  --apple-text: #F5F5F7;
+  --apple-text-light: #86868B;
+  --apple-card-bg: rgba(28, 28, 30, 0.8);
+  --apple-glass-border: rgba(255, 255, 255, 0.1);
+}
+
+/* Global Reset & Typography */
+body,
+.md-typeset {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--apple-bg);
+  color: var(--apple-text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--apple-text);
+}
+
+.md-typeset h1 {
+  font-size: 3.5rem;
+  /* Large Hero Text */
+  line-height: 1.1;
+}
+
+/* Header Transparency */
+.md-header {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: none !important;
+}
+
+[data-md-color-scheme="slate"] .md-header {
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Hero Section */
+.hero-section {
+  text-align: center;
+  padding: 8rem 2rem 4rem;
+  max-width: 980px;
+  margin: 0 auto;
+  background-image: linear-gradient(to bottom, rgba(245, 245, 247, 0.8), var(--apple-bg)), url('../assets/hero-bg-new.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  /* Parallax-like effect */
+  border-radius: 0 0 40px 40px;
+  /* Soft curve at bottom */
+}
+
+[data-md-color-scheme="slate"] .hero-section {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), var(--apple-bg)), url('../assets/hero-bg-new.png');
+}
+
+.hero-eyebrow {
+  color: var(--apple-blue);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, var(--apple-text) 0%, var(--apple-text-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: var(--apple-text-light);
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  font-weight: 400;
+}
+
+/* Bento Grid */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 2rem 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.bento-item {
+  background: var(--apple-card-bg);
+  border-radius: 24px;
+  padding: 2rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--apple-glass-border);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.bento-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.bento-item h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+}
+
+.bento-item p {
+  color: var(--apple-text-light);
+  font-size: 1.1rem;
+}
+
+/* Buttons */
+.btn-apple {
+  display: inline-block;
+  background-color: var(--apple-blue);
+  color: white !important;
+  padding: 12px 24px;
+  border-radius: 980px;
+  /* Pill shape */
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.btn-apple:hover {
+  background-color: #0077ED;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 113, 227, 0.3);
+}
+
+.btn-apple.secondary {
+  background-color: transparent;
+  color: var(--apple-blue) !important;
+  border: 1px solid var(--apple-blue);
+}
+
+.btn-apple.secondary:hover {
+  background-color: rgba(0, 113, 227, 0.1);
+}
+
+/* Animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Footer */
+.md-footer {
+  background-color: var(--apple-bg) !important;
+}
